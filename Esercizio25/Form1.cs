@@ -24,13 +24,8 @@ namespace Esercizio25
             path = Path.GetDirectoryName(path);
             path += @"\liste";
             Directory.CreateDirectory(path);
-            StreamWriter sr = new StreamWriter(path + @"\lista.txt");
+            StreamWriter sr = new StreamWriter(path + @"\lista.csv");
             sr.Close();
-        }
-
-        private void textBoxwriter_TextChanged(object sender, EventArgs e)
-        {
-             
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,8 +35,8 @@ namespace Esercizio25
 
         private void aggiunta_Click(object sender, EventArgs e)
         {
-            StreamWriter sr = new StreamWriter(path + @"\lista.txt",true);
-            sr.WriteLine("Prodotto:"+ " " + texagg.Text + " " + "Prezzo: " + " " +  textBox2.Text +"€");
+            StreamWriter sr = new StreamWriter(path + @"\lista.csv",true);
+            sr.WriteLine("Prodotto:"+ "" + texagg.Text + ";" + "Prezzo: " + " " +  textBox2.Text +"€");
             sr.Close();
             Listaprodotti.Items.Clear();
             Lista();
@@ -56,8 +51,24 @@ namespace Esercizio25
                 Listaprodotti.Items.Add(lines[i]);
             }
         }
-        
+
+
         //funzione eliminazione
-        //public void Eliminazione []
+        public void Elimina()
+        {
+            StreamWriter sw = new StreamWriter(path + @"\eliminazione.csv");
+            StreamReader sr = new StreamReader(path + @"\lista.csv");
+            String line;
+            line = sr.ReadLine();
+            string[] vs = line.Split(';');
+            
+            do
+            {    
+                 if ()     
+            } while (line != null);
+
+        }
+
+
     }
 }

@@ -31,7 +31,6 @@
             this.aggiunta = new System.Windows.Forms.Button();
             this.eliminazione = new System.Windows.Forms.Button();
             this.texagg = new System.Windows.Forms.TextBox();
-            this.texEli = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.Listaprodotti = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +39,7 @@
             // 
             // aggiunta
             // 
-            this.aggiunta.Location = new System.Drawing.Point(12, 20);
+            this.aggiunta.Location = new System.Drawing.Point(49, 20);
             this.aggiunta.Name = "aggiunta";
             this.aggiunta.Size = new System.Drawing.Size(140, 31);
             this.aggiunta.TabIndex = 0;
@@ -50,7 +49,7 @@
             // 
             // eliminazione
             // 
-            this.eliminazione.Location = new System.Drawing.Point(12, 108);
+            this.eliminazione.Location = new System.Drawing.Point(204, 20);
             this.eliminazione.Name = "eliminazione";
             this.eliminazione.Size = new System.Drawing.Size(140, 31);
             this.eliminazione.TabIndex = 1;
@@ -59,22 +58,14 @@
             // 
             // texagg
             // 
-            this.texagg.Location = new System.Drawing.Point(12, 71);
+            this.texagg.Location = new System.Drawing.Point(49, 71);
             this.texagg.Name = "texagg";
             this.texagg.Size = new System.Drawing.Size(140, 20);
             this.texagg.TabIndex = 3;
             // 
-            // texEli
-            // 
-            this.texEli.Location = new System.Drawing.Point(12, 145);
-            this.texEli.Multiline = true;
-            this.texEli.Name = "texEli";
-            this.texEli.Size = new System.Drawing.Size(140, 31);
-            this.texEli.TabIndex = 4;
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 71);
+            this.textBox2.Location = new System.Drawing.Point(204, 71);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(140, 20);
             this.textBox2.TabIndex = 6;
@@ -96,7 +87,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 54);
+            this.label1.Location = new System.Drawing.Point(49, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 8;
@@ -105,7 +96,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(164, 54);
+            this.label2.Location = new System.Drawing.Point(201, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 9;
@@ -120,7 +111,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Listaprodotti);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.texEli);
             this.Controls.Add(this.texagg);
             this.Controls.Add(this.eliminazione);
             this.Controls.Add(this.aggiunta);
@@ -137,7 +127,6 @@
         private System.Windows.Forms.Button aggiunta;
         private System.Windows.Forms.Button eliminazione;
         private System.Windows.Forms.TextBox texagg;
-        private System.Windows.Forms.TextBox texEli;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListView Listaprodotti;
         private System.Windows.Forms.Label label1;
