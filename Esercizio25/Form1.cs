@@ -40,10 +40,24 @@ namespace Esercizio25
 
         private void aggiunta_Click(object sender, EventArgs e)
         {
-            StreamWriter sr = new StreamWriter(path + @"\lista.txt");
+            StreamWriter sr = new StreamWriter(path + @"\lista.txt",true);
             sr.WriteLine("Prodotto:"+ " " + texagg.Text + " " + "Prezzo: " + " " +  textBox2.Text +"€");
             sr.Close();
+            Listaprodotti.Items.Clear();
+            Lista();
         }
 
+        //funzione lista 
+        private void Lista()
+        {
+            string[] lines = File.ReadAllLines(path + @"\lista.txt");
+            for (int i = 0; i < lines.Length; i++)
+            {
+                Listaprodotti.Items.Add(lines[i]);
+            }
+        }
+        
+        //funzione eliminazione
+        //public void Eliminazione []
     }
 }
