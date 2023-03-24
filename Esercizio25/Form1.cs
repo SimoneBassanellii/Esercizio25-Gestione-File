@@ -13,7 +13,6 @@ namespace Esercizio25
 {
     public partial class Form1 : Form
     {
-        public string percorsoFile= @"C:\Users\bassanelli.20180\source\repos\Esercizio25";
         public string path;
         
         public Form1()
@@ -26,7 +25,7 @@ namespace Esercizio25
             path += @"\liste";
             Directory.CreateDirectory(path);
             StreamWriter sr = new StreamWriter(path + @"\lista.txt");
-
+            sr.Close();
         }
 
         private void textBoxwriter_TextChanged(object sender, EventArgs e)
@@ -34,16 +33,17 @@ namespace Esercizio25
              
         }
 
-        private void writer_Click(object sender, EventArgs e)
-        {
-            StreamWriter sw = new StreamWriter(percorsoFile);
-            sw.WriteLine("Hello World");
-            sw.Close();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void aggiunta_Click(object sender, EventArgs e)
+        {
+            StreamWriter sr = new StreamWriter(path + @"\lista.txt");
+            sr.WriteLine("Prodotto:"+ " " + texagg.Text + " " + "Prezzo: " + " " +  textBox2.Text +"€");
+            sr.Close();
+        }
+
     }
 }
