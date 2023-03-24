@@ -19,7 +19,7 @@ namespace Esercizio25
         {
             InitializeComponent();
             path = Path.GetFullPath(".");
-            path = Path.GetDirectoryName(path);
+            path = Path.GetDirectoryName(path); 
             path = Path.GetDirectoryName(path);
             path = Path.GetDirectoryName(path);
             path += @"\liste";
