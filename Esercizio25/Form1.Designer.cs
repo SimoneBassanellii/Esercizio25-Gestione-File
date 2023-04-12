@@ -55,6 +55,7 @@
             this.eliminazione.TabIndex = 1;
             this.eliminazione.Text = "Eliminazione";
             this.eliminazione.UseVisualStyleBackColor = true;
+            this.eliminazione.Click += new System.EventHandler(this.eliminazione_Click);
             // 
             // texagg
             // 

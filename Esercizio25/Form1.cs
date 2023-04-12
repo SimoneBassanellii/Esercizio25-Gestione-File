@@ -74,8 +74,18 @@ namespace Esercizio25
                 {
                     sw.WriteLine(s);
                 }
-
             }
+            File.Delete(path + @"/lista.csv");
+
+            //e rinomino il file momentaneo, rendendolo il nuovo principale
+            File.Move(path + @"/eliminazione.csv", path + @"/lista.csv");
+        }
+
+        private void eliminazione_Click(object sender, EventArgs e)
+        {
+            Elimina(texagg.Text);
+            texagg.Text = "";
+            texagg.Focus();
         }
     }
 }
