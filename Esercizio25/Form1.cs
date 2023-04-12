@@ -24,7 +24,7 @@ namespace Esercizio25
             path = Path.GetDirectoryName(path);
             path += @"\liste";
             Directory.CreateDirectory(path);
-            StreamWriter sr = new StreamWriter(path + @"\lista.csv");
+            StreamWriter sr = new StreamWriter(path + @"\lista.txt");
             sr.Close();
         }
 
@@ -35,8 +35,8 @@ namespace Esercizio25
 
         private void aggiunta_Click(object sender, EventArgs e)
         {
-            StreamWriter sr = new StreamWriter(path + @"\lista.csv",true);
-            sr.WriteLine("Prodotto:"+ "" + texagg.Text + ";" + "Prezzo: " + " " +  textBox2.Text +"€");
+            StreamWriter sr = new StreamWriter(path + @"\lista.txt",true);
+            sr.WriteLine("Prodotto:"+ " " + texagg.Text + ";" + " " + "Prezzo: " + " " +  textBox2.Text +"€");
             sr.Close();
             Listaprodotti.Items.Clear();
             Lista();
@@ -56,8 +56,8 @@ namespace Esercizio25
         //funzione eliminazione
         public void Elimina(string nome)
         {
-            StreamWriter sw = new StreamWriter(path + @"\eliminazione.csv");
-            StreamReader sr = new StreamReader(path + @"\lista.csv");
+            StreamWriter sw = new StreamWriter(path + @"\eliminazione.txt");
+            StreamReader sr = new StreamReader(path + @"\lista.txt");
             String line;
             string s;
             line = sr.ReadLine();
@@ -75,10 +75,10 @@ namespace Esercizio25
                     sw.WriteLine(s);
                 }
             }
-            File.Delete(path + @"/lista.csv");
+            File.Delete(path + @"/lista.txt");
 
             //e rinomino il file momentaneo, rendendolo il nuovo principale
-            File.Move(path + @"/eliminazione.csv", path + @"/lista.csv");
+            File.Move(path + @"/eliminazione.txt", path + @"/lista.txt");
         }
 
         private void eliminazione_Click(object sender, EventArgs e)
