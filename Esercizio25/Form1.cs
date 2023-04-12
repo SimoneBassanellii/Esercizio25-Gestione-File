@@ -54,21 +54,28 @@ namespace Esercizio25
 
 
         //funzione eliminazione
-        public void Elimina()
+        public void Elimina(string nome)
         {
             StreamWriter sw = new StreamWriter(path + @"\eliminazione.csv");
             StreamReader sr = new StreamReader(path + @"\lista.csv");
             String line;
+            string s;
             line = sr.ReadLine();
             string[] vs = line.Split(';');
-            
-            do
-            {    
-                 if ()     
-            } while (line != null);
 
+            while ((s = sr.ReadLine()) != null)
+            {
+                //se il nome appartiene alla stringa 
+                if (s.Contains(nome))
+                {
+                    sw.WriteLine();
+                }
+                else
+                {
+                    sw.WriteLine(s);
+                }
+
+            }
         }
-
-
     }
 }
