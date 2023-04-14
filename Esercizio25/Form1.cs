@@ -1,25 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Esercizio25
 {
     public partial class Form1 : Form
     {
         public string path;
-        
+
         public Form1()
         {
             InitializeComponent();
             path = Path.GetFullPath(".");
-            path = Path.GetDirectoryName(path); 
+            path = Path.GetDirectoryName(path);
             path = Path.GetDirectoryName(path);
             path = Path.GetDirectoryName(path);
             path += @"\liste";
@@ -35,8 +28,8 @@ namespace Esercizio25
 
         private void aggiunta_Click(object sender, EventArgs e)
         {
-            StreamWriter sr = new StreamWriter(path + @"\lista.txt",true);
-            sr.WriteLine("Prodotto:"+ " " + texagg.Text + ";" + " " + "Prezzo: " + " " +  textBox2.Text +"€");
+            StreamWriter sr = new StreamWriter(path + @"\lista.txt", true);
+            sr.WriteLine("Prodotto:" + " " + texagg.Text + ";" + " " + "Prezzo: " + " " + textBox2.Text + "€");
             sr.Close();
             Listaprodotti.Items.Clear();
             Lista();
@@ -58,13 +51,13 @@ namespace Esercizio25
         {
             StreamWriter sw = new StreamWriter(path + @"\eliminazione.txt");
             StreamReader sr = new StreamReader(path + @"\lista.txt");
-            String line;
+            //String line;
             string s;
-            line = sr.ReadLine();
-            string[] vs = line.Split(';');
 
-            while ((s = sr.ReadLine()) != null)
+            while ((s = sr.Equals()) != null)
             {
+                string[] vs = s.Split(';');
+
                 //se il nome appartiene alla stringa 
                 if (s.Contains(nome))
                 {
@@ -75,6 +68,8 @@ namespace Esercizio25
                     sw.WriteLine(s);
                 }
             }
+            sr.Close();
+            sw.Close();
             File.Delete(path + @"/lista.txt");
 
             //e rinomino il file momentaneo, rendendolo il nuovo principale
@@ -86,6 +81,39 @@ namespace Esercizio25
             Elimina(texagg.Text);
             texagg.Text = "";
             texagg.Focus();
+        }
+
+        public void Modifica(string nomevecchio, string prezzo, string nomemodificato)
+
+        {
+            //File di lettura
+            using (StreamReader sw = File.OpenText(path + @"/lista.txt"))
+            {
+                string s;
+
+                //File di scrittura
+                using (StreamWriter sw2 = new StreamWriter(path + @"/eliminazione.txt", false))
+                {
+
+                    while ((s = sw.ReadLine()) != null)
+                    { 
+                        if (s.Contains(nomevecchio))
+                        {
+                            sw2.WriteLine("Prodotto: " + nomemodificato + " , Prezzo: " + prezzo + " $");
+                        }
+                        else
+                        {
+                            sw2.WriteLine(s);
+                        }
+
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
